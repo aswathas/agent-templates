@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:628px;background:#fff;font-family:'Segoe UI',system-ui,sans-serif;color:#111}
+.pad{padding:46px 54px 0}
+h1{font-size:40px;font-weight:650;letter-spacing:-.025em;line-height:1.1}
+.sub{font-size:17px;color:#666;margin-top:12px;line-height:1.5;max-width:900px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.card{border:1px solid #e3e3e1;border-radius:10px;padding:24px 22px 22px}
+.card.bad{border-color:#e8c9c4;background:#fefaf9}
+.card.good{border-color:#bfdcd2;background:#f7fcfa}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:5px}
+.bad .tag{background:#fde8e4;color:#9a3a2c}
+.good .tag{background:#dcf0e8;color:#14614c}
+.ttl{font-size:20px;font-weight:650;margin-top:14px;letter-spacing:-.015em}
+.sub2{font-size:13.5px;color:#666;margin-top:7px;line-height:1.45}
+.stats{display:flex;gap:26px;margin-top:18px;padding-top:15px;border-top:1px solid rgba(0,0,0,.07)}
+.st .n{font-size:31px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bad .st .n{color:#9a3a2c}
+.good .st .n{color:#14614c}
+.st .l{font-size:10.5px;color:#777;text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
+.sw{display:flex;gap:7px;margin-top:15px}
+.sw i{width:26px;height:26px;border-radius:5px;display:block}
+.note{margin-top:22px;font-size:15px;color:#333;border-left:3px solid #14614c;padding-left:15px;line-height:1.5;max-width:1050px}
+.note b{font-weight:650}
+.foot{margin-top:20px;font-size:12.5px;color:#767676}
+</style></head>
+<body><div class="pad">
+<h1>The gate reads your tokens first</h1>
+<p class="sub">The most-installed anti-slop skill bans cream, terracotta and purple unconditionally. A brand that <em>is</em> terracotta fails forever. This one conditions on your own <code>globals.css</code>, <code>DESIGN.md</code> and Tailwind config.</p>
+
+<div class="cols">
+  <div class="card bad">
+    <span class="tag">AI-typical page</span>
+    <div class="ttl">Seeded with 15 tells</div>
+    <div class="sub2">Gradient headline, three identical cards, eyebrow badge, <code>hover:scale-105</code>, "Trusted by 10,000+ teams", SOC 2 claim, Inter.</div>
+    <div class="stats">
+      <div class="st"><div class="n">15</div><div class="l">findings</div></div>
+      <div class="st"><div class="n">2</div><div class="l">blocking</div></div>
+      <div class="st"><div class="n">1</div><div class="l">exit code</div></div>
+    </div>
+    <div class="sw">
+      <i style="background:#8b5cf6"></i><i style="background:#6366f1"></i><i style="background:#a78bfa"></i>
+      <i style="background:#f4f1ea"></i><i style="background:#d97757"></i>
+    </div>
+  </div>
+
+  <div class="card good">
+    <span class="tag">Real terracotta brand</span>
+    <div class="ttl">A pottery studio</div>
+    <div class="sub2"><code>--brand:#d97757</code> is declared in its own tokens, so terracotta is a brand decision. Every universal rule still fires.</div>
+    <div class="stats">
+      <div class="st"><div class="n">1</div><div class="l">findings</div></div>
+      <div class="st"><div class="n">0</div><div class="l">blocking</div></div>
+      <div class="st"><div class="n">0</div><div class="l">exit code</div></div>
+    </div>
+    <div class="sw">
+      <i style="background:#d97757"></i><i style="background:#faf7f4;border:1px solid #e6ddd7"></i>
+      <i style="background:#2b211c"></i>
+    </div>
+  </div>
+</div>
+
+<div class="note">That single finding is correct: the raw hex should be <b>var(--brand)</b>. Your brand colour is never a finding. A hardcoded one always is.</div>
+<div class="foot">github.com/aswathas/agent-templates</div>
+</div></body></html>

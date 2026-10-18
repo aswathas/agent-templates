@@ -1,0 +1,24 @@
+{
+  "name": "agent-templates-images",
+  "version": "1.0.0",
+  "description": "Image renderer for the LinkedIn post assets. Sources are plain HTML in images/src/.",
+  "scripts": {
+    "render": "node images/render.mjs",
+    "test": "node --test templates/uiux/tools/gate.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aswathas/agent-templates.git"
+  },
+  "author": "aswathas",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/aswathas/agent-templates/issues"
+  },
+  "homepage": "https://github.com/aswathas/agent-templates#readme",
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  },
+  "private": true
+}

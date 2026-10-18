@@ -524,3 +524,43 @@ It also has no false-positive budget yet. The `rounded-uniform` and `shadow-at-r
 - **No hands-on trials.** Everything here is desk research. Every tool was read, not run.
 - **The dependency risk is unquantified.** The agent routes marketing work to `taste-skill`. Without it installed, the fallback is prose-only — no direction library, no browser inspector.
 - **The smoke test has not run.** MCP servers spawn on install and have not been exercised against a live page.
+
+---
+
+## 15. Upstream bugs found, not ours
+
+Two failures in third-party tooling, both verified live on 2026-10-19. Neither is fixable from this repo. They are recorded because the workarounds are non-obvious and a future contributor will hit both.
+
+### 1. `findskills-mcp@latest` is a broken publish
+
+```
+$ npx -y findskills-mcp@latest
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '.../findskills-mcp/lib/auth-error.js'
+  imported from .../findskills-mcp/api.js
+```
+
+The published tarball for `0.1.25` omits `lib/auth-error.js`, which `api.js` imports at the top level. The server dies before it can serve a request. Reproduced on `0.1.25`; `0.1.20` and earlier start cleanly.
+
+**Workaround — pin the version:**
+
+```bash
+claude mcp add findskills -s user -- npx -y "findskills-mcp@0.1.20"
+```
+
+**Verification that the pin is still right:**
+
+```bash
+claude mcp get findskills     # Status: ✔ Connected
+```
+
+The CLI (`npx findskills`) is a separate package and is unaffected. It requires auth before searching: `npx findskills auth`, then `npx findskills auth --status` should print `Authenticated`.
+
+### 2. `findmcps` does not exist
+
+There is no such package on npm. `npx findmcps` returns 404. The concept is real (an MCP registry search) but no such tool was published under that name as of this writing, and registry metadata in `findskills` is unreliable — it also pointed at a skill that does not exist in the repo it named.
+
+**Workaround:** query Context7 and the web directly for MCP options, then verify each endpoint by fetching its docs before putting it in `.mcp.json`. Do not trust a registry listing as evidence an MCP server exists.
+
+### Registry metadata is not evidence
+
+Two independent cases in one session: a 404 package that everyone recommends by name, and a skills registry entry pointing into a repo that does not contain it. Verify with `gh api` or `npm view` before installing anything from a listing.

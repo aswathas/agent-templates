@@ -96,14 +96,19 @@ Public + MIT: https://github.com/aswathas/agent-templates
 
 ---
 
-## Post assets
+## Post images — generated and ready
 
-Screenshot ideas, in priority order:
+Three 1200x628 PNGs in `images/out/`, 2x scale (2400x1256), LinkedIn feed dimensions.
 
-1. **Side by side.** Eval 1's two landing pages. Same prompt, same seeds. This is the post.
-2. **The terracotta test.** The pottery page producing one finding vs the AI page producing fifteen. Proves brand-conditioning at a glance.
-3. **RESEARCH.md §5.** The convergence rule — "ban Inter → everyone ships Space Grotesk." Niche but quotable.
-4. **Terminal.** `node tools/gate.mjs ./src` returning findings with file:line.
+| # | File | What it shows |
+|---|---|---|
+| 1 | `01-gate.png` | AI-typical page (15 findings, 2 blocking, exit 1) beside a real terracotta brand (1 finding, 0 blocking, exit 0) |
+| 2 | `02-architecture.png` | The four-step flow and all eight routes, with the closed/open boundary marked |
+| 3 | `03-eval.png` | The blinded A/B. Bars are the literal rubric scores — A: 0,0,1,0,0,0. B: 0,0,2,1,1,1 |
+
+Post as a **three-image carousel in that order**. The gate image leads because it is the only claim a reader can verify in ten seconds.
+
+Rebuild after editing anything: `node images/render.mjs`. Sources are plain HTML, no image API, no keys. Every number in every image is the number the post makes a claim about — nothing is decorative.
 
 ## Suggested first comment
 
