@@ -12,10 +12,18 @@ Three 1200×628 PNGs at 2× device scale (2400×1256), sized for LinkedIn's link
 
 ```bash
 npm install          # playwright, dev only
-node images/render.mjs
+npm run render
 ```
 
 Sources are plain HTML in `images/src/`. Edit the HTML, re-run, done. No design tool, no image API, no keys.
+
+**The renderer asserts no overflow and exits 1 if any element runs past the 628px frame.** A screenshot of clipped content still renders, so measuring is the only way to catch it. Every one of these images overflowed at least once during authoring and looked fine in the PNG until it was measured.
+
+## Legibility at feed size
+
+LinkedIn shows a feed image near 600px wide. These are 1200px CSS at 2x DPR, so a reader sees them at roughly half scale.
+
+That makes the type floor different from a web page. The source type is sized so the *viewed* size clears the bar, not so the CSS value does. Anything under 11px in the source becomes sub-pixel in the feed. The `impeccable` hook caught six of those during authoring; the same class of failure that the eval-1 candidate found in its own overflow detector — a check that looks right and catches nothing.
 
 ## Why HTML and not an image model
 
