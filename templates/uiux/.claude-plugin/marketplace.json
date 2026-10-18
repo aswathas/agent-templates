@@ -1,0 +1,20 @@
+{
+  "name": "uiux",
+  "owner": { "name": "aswathas" },
+  "metadata": {
+    "description": "Frontend design agent templates. Install once, route per surface.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "uiux",
+      "source": "./",
+      "description": "Frontend design agent — brief-first routing, anti-slop marketing surfaces, complete product UI states, real-browser verification.",
+      "category": "development",
+      "version": "1.0.0",
+      "author": { "name": "aswathas" },
+      "keywords": ["frontend", "design", "ui", "ux", "accessibility", "dashboard"],
+      "strict": false
+    }
+  ]
+}

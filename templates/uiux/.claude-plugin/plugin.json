@@ -1,0 +1,8 @@
+{
+  "name": "uiux",
+  "description": "Frontend design agent — brief-first routing, anti-slop marketing surfaces, complete product UI states, real-browser verification.",
+  "author": { "name": "aswathas" },
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": ["frontend", "design", "ui", "ux", "accessibility", "dashboard", "components"]
+}
